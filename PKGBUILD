@@ -21,4 +21,8 @@ build() {
 package() {
   cd ${pkgname}-${pkgver}
   make prefix="${pkgdir}/usr" sbindir='$(prefix)/bin' mandir='$(prefix)/share/man' man8dir='$(mandir)/man8' install
+  mkdir -p "${pkgdir}/etc/linuxptp"
+  for cfg in configs/*.cfg; do
+    install -Dm0644 ${cfg} "${pkgdir}/etc/linuxptp/"
+  done
 }
