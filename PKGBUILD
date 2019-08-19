@@ -10,8 +10,12 @@ url='http://linuxptp.sourceforge.net/'
 license=('GPL')
 depends=('glibc')
 makedepends=()
-source=("https://sourceforge.net/projects/${pkgname}/files/${pkgname}-${pkgver}.tgz/download")
-sha256sums=('0a24d9401e87d4af023d201e234d91127d82c350daad93432106284aa9459c7d')
+source=("https://sourceforge.net/projects/${pkgname}/files/${pkgname}-${pkgver}.tgz/download"
+        "phc2sys.service"
+        "ptp4l.service")
+sha256sums=('0a24d9401e87d4af023d201e234d91127d82c350daad93432106284aa9459c7d'
+            '66d960e1507c10b6a26346cef1f92658f62e88595138be6b7542c3640d5e712b'
+            'bc6b4eac0bd1ae05cf19e6534c152444a0a27c45f57731adfb01ad6053b4289e')
  
 build() {
   cd ${pkgname}-${pkgver}
@@ -25,4 +29,6 @@ package() {
   for cfg in configs/*.cfg; do
     install -Dm0644 ${cfg} "${pkgdir}/etc/linuxptp/"
   done
+  install -Dm0644 "${srcdir}/phc2sys.service" "${pkgdir}/usr/lib/systemd/system/phc2sys.service"
+  install -Dm0644 "${srcdir}/ptp4l.service" "${pkgdir}/usr/lib/systemd/system/ptp4l.service"
 }

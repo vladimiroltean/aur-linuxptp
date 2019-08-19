@@ -1,0 +1,11 @@
+[Unit]
+Description=Precision Time Protocol (PTP) service
+
+[Service]
+Type=simple
+ExecStartPre=/usr/bin/phc_ctl /dev/ptp0 set
+ExecStartPre=/usr/bin/phc_ctl /dev/ptp0 freq 0
+ExecStart=/usr/bin/ptp4l -f /etc/linuxptp/default.cfg -i eth0
+
+[Install]
+WantedBy=multi-user.target
