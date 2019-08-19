@@ -2,7 +2,7 @@
 # Fixes: Brian Bidulock <bidulock at openss7 dot org>
  
 pkgname=linuxptp
-pkgver=2.0
+pkgver=master
 pkgrel=1
 pkgdesc='An implementation of the Precision Time Protocol (PTP) according to IEEE standard 1588 for Linux.'
 arch=('i686' 'x86_64' 'armv7h' 'aarch64')
@@ -10,10 +10,10 @@ url='http://linuxptp.sourceforge.net/'
 license=('GPL')
 depends=('glibc')
 makedepends=()
-source=("https://sourceforge.net/projects/${pkgname}/files/${pkgname}-${pkgver}.tgz/download"
+source=("https://github.com/richardcochran/linuxptp/archive/master.zip"
         "phc2sys.service"
         "ptp4l.service")
-sha256sums=('0a24d9401e87d4af023d201e234d91127d82c350daad93432106284aa9459c7d'
+sha256sums=('SKIP'
             '66d960e1507c10b6a26346cef1f92658f62e88595138be6b7542c3640d5e712b'
             'bc6b4eac0bd1ae05cf19e6534c152444a0a27c45f57731adfb01ad6053b4289e')
  
